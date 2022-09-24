@@ -1,0 +1,27 @@
+
+<Leads>
+    <Lead>
+        <name>antonin,hunault</name>
+        <annualRevenue>20000</annualRevenue>
+        <phone>056161406</phone>
+        <street>2 rue boulevard de Lavoisier</street>
+        <postalCode>49000</postalCode>
+        <city>Angers</city>
+        <country>France</country>
+        <creationDate>11/09/2022</creationDate>
+        <company>le savoir</company>
+        <state></state>
+    </Lead>
+    <Lead>
+        <name>mia,jair</name>
+        <annualRevenue>200120</annualRevenue>
+        <phone>0561646165</phone>
+        <street>2 rue boulevard de Lavoisier</street>
+        <postalCode>49000</postalCode>
+        <city>Angers</city>
+        <country>France</country>
+        <creationDate>12/09/2022</creationDate>
+        <company>le savoir</company>
+        <state></state>
+    </Lead>
+</Leads>
