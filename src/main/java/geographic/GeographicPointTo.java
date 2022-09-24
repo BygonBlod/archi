@@ -9,6 +9,8 @@ public class GeographicPointTo {
     }
 
     public GeographicPointTo(String street, String city, String country, String postalCode) {
+        latitude=0;
+        longitude=0;
     }
 
     public void setLatitude(double latitude) {

@@ -3,7 +3,6 @@ package model;
 import geographic.GeographicPointTo;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class LeadTo {
     String firstName;
@@ -14,12 +13,12 @@ public class LeadTo {
     String postalCode;
     String city;
     String country;
-    Date creationDate;
+    Calendar creationDate;
     GeographicPointTo geographicPointTo;
     String company;
     String state;
 
-    public LeadTo(String fn,String ln,double ar,String ph,String st,String pc,String ci,String co,Date da,String comp,String sta){
+    public LeadTo(String fn,String ln,double ar,String ph,String st,String pc,String ci,String co,Calendar da,String comp,String sta){
         firstName=fn;
         lastName=ln;
         annualRevenue=ar;
@@ -58,7 +57,7 @@ public class LeadTo {
         return street;
     }
 
-    public Date getCreationDate() {
+    public Calendar getCreationDate() {
         return creationDate;
     }
 
@@ -80,5 +79,21 @@ public class LeadTo {
 
     public String getState() {
         return state;
+    }
+
+    public String toString(){
+        String res="";
+        res+="[name: "+firstName+" "+lastName+", ";
+        res+="phone: "+phone+", ";
+        res+="postalCode: "+postalCode+", ";
+        res+="revenue: "+annualRevenue+", ";
+        res+="street: "+street+", ";
+        res+="city: "+city+", ";
+        res+="country: "+country+", ";
+        res+="state: "+state+", ";
+        res+="company: "+company+", ";
+        res+="latitude: "+geographicPointTo.getLatitude()+", longitude: "+geographicPointTo.getLongitude()+", ";
+        res+="date créa: "+ creationDate.getTime().toString()+"]";
+        return res;
     }
 }

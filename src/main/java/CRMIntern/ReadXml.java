@@ -12,13 +12,14 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.traversal.DocumentTraversal;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
+import java.util.GregorianCalendar;
 
 import Util.Util;
 
 public class ReadXml {
-    public static String getLeads(String args){
+    public static ArrayList<LeadTo> getLeads(String args){
         ArrayList<LeadTo> leads=new ArrayList<>();
         Document document = null;
         DocumentBuilderFactory factory = null;
@@ -58,24 +59,24 @@ public class ReadXml {
                     String postalCodeS=postalCode.getTextContent();
                     String cityS=city.getTextContent();
                     String countryS=country.getTextContent();
-                    Date date=getDate(creationDate);
+                    Calendar date=getDate(creationDate);
                     String companyS=company.getTextContent();
                     String stateS=state.getTextContent();
-
-
+                    LeadTo lead=new LeadTo(firstName,lastName,revenueS,phoneS,streetS,postalCodeS,cityS,countryS,date,companyS,stateS);
+                    leads.add(lead);
                 }
             }
         }
-        return "fonctionne";
+        return leads;
     }
 
-    private static Date getDate(Element creationDate) {
+    private static Calendar getDate(Element creationDate) {
         String dateCrea=creationDate.getTextContent();
         String []date=dateCrea.split("/");
         int day= Integer.parseInt(date[0]);
         int month= Integer.parseInt(date[1])-1;
         int year= Integer.parseInt(date[2]);
-        return new Date(year,month,day);
+        return new GregorianCalendar(year,month,day);
 
     }
 }
