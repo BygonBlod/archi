@@ -39,7 +39,6 @@ public class VirtualCRM implements VirtualCRMService{
             new BasicNameValuePair("username","antonin@project.com"),
             new BasicNameValuePair("password","SuperProject1")
         };
-        /*---------------------------------------------------------------en test de requete---------------------------------------------------------*/
         HttpPost request = new HttpPost("https://login.salesforce.com/services/oauth2/token");
 
         request.addHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -59,7 +58,6 @@ public class VirtualCRM implements VirtualCRMService{
 
                 jsonObject = (JSONObject) new JSONTokener(result).nextValue();
                 key = jsonObject.getString("access_token");
-                System.out.println("résultat "+key);
 
 
             }
@@ -70,7 +68,6 @@ public class VirtualCRM implements VirtualCRMService{
             jsonException.printStackTrace();
         }
         requete();
-        /*--------------------------------------------------------------------------------------------------------------*/
     }
 
     public static VirtualCRM getInstance() {
@@ -82,7 +79,7 @@ public class VirtualCRM implements VirtualCRMService{
     public void requete(){
         String uri="https://archiproject-dev-ed.my.salesforce.com/services/data/v45.0//query?";
         //requete sur toutes les informations demander des leads
-        uri+="q=Select+Id+,+FirstName+,+LastName+,+Company+From+Lead";
+        uri+="q=Select+Id+,+FirstName+,+LastName+,+AnnualRevenue+,+Phone+,+Street+,+PostalCode+,+City+,+Country+,+Company+,+State+From+Lead";
         HttpGet request = new HttpGet(uri);
 
         request.addHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -96,7 +93,7 @@ public class VirtualCRM implements VirtualCRMService{
             HttpEntity entity = response.getEntity();
             if (entity != null) {
                 String result = EntityUtils.toString(entity);
-                System.out.println(result);
+                //System.out.println(result);
 
             }
         } catch (IOException e) {
